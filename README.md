@@ -45,16 +45,16 @@ A high-level diagram of the model is shown in the following screenshot:
 ### Debugging Report
 Two plots show dependence between loss and step: first one shows the `train_loss/steps`, the second one shows the `test_loss/steps`.
 ### Train loss plot:
-![train loss snapshot](images/train_loss.png)
+![train loss](images/train_loss.png)
 
 ### Test loss plot:
-![test loss snapshot](images/test_loss.png)
+![test loss](images/test_loss.png)
 
 ### Debugging and Profile Rules:
-![test loss snapshot](images/Debug_Profile_Rules.png)
+![dpr](images/dpr.png)
 
 ### Profiling Results:
-![test loss snapshot](images/pr.png)
+![pr](images/pr.png)
 
 ### Results
 As we see there are some anomalous behaviour in the debugging output:
