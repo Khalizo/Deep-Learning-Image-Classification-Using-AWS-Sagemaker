@@ -24,42 +24,82 @@ A high-level diagram of the model is shown in the following screenshot:
 ![inception_v3_architecture](images/inception_v3_overview.png)
 
 - The following hyperparameters were selected for tuning: 
-    - ** Learning rate **- learning rate defines how fast the model trains. A large learning rate allows the model to learn faster, with a small learning rate it takes a longer time for the model to learn but with more accuracy. The range is from 0.001 to 0.1.
+    - **Learning rate** - learning rate defines how fast the model trains. A large learning rate allows the model to learn faster, with a small learning rate it takes a longer time for the model to learn but with more accuracy. The range is from 0.001 to 0.1.
 
-    - **  Batch size ** - batch size is the number of examples from the training dataset used in the estimate of the error gradient. Batch size controls the accuracy of the estimate of the error gradient when training neural networks. The batch-size we choose between two numbers 64 and 128.
+    - **Batch size** - batch size is the number of examples from the training dataset used in the estimate of the error gradient. Batch size controls the accuracy of the estimate of the error gradient when training neural networks. The batch-size we choose between two numbers 64 and 128.
 
     - **epoch** - epochs is the number of times that the learning algorithm will work through the entire training dataset. The epochs we choose between two numbers 2 and 5.
 
 - The best hyperparameters selected were: {'batch-size': '128', 'lr': '0.003484069065132129', 'epochs': '2'}
 
 ### All Training Jobs
-![all training jobs snapshot](imgs/all_training_jobs.png)
+![all training jobs snapshot](images/Training Jobs.png)
 
 ### Hyperparameters Tuning Jobs
-![hyperparameters tuning jobs snapshot](imgs/hpo.png)
+![hyperparameters tuning jobs snapshot](images/Hyperparameter Jobs.png)
 
 ### Best Hyperparameters Tuning Job
-![best hyperparameters tuning job snapshot](imgs/hpo_best.png)
-
-Remember that your README should:
-- Include a screenshot of completed training jobs
-- Logs metrics during the training process
-- Tune at least two hyperparameters
-- Retrieve the best best hyperparameters from all your training jobs
+![best hyperparameters tuning job snapshot](images/Best Training job.png)
 
 ## Debugging and Profiling
-**TODO**: Give an overview of how you performed model debugging and profiling in Sagemaker
+### Debugging Report
+Two plots show dependence between loss and step: first one shows the `train_loss/steps`, the second one shows the `test_loss/steps`.
+### Train loss plot:
+![train loss snapshot](images/Train Loss.png)
+
+### Test loss plot:
+![test loss snapshot](images/Test Loss.png)
+
+### Debugging and Profile Rules:
+![test loss snapshot](images/Debug_Profile_Rules.png)
+
+### Profiling Results:
+![test loss snapshot](images/Profiling results.png)
 
 ### Results
-**TODO**: What are the results/insights did you get by profiling/debugging your model?
+As we see there are some anomalous behaviour in the debugging output:
+1. In the `train_loss/steps` as steps are increased the loss is decreased. The graph is smooth.
+2. In the `test_loss/steps` as steps are increased we cannot say the loss is decreased. The graph isn't smooth.
 
-**TODO** Remember to provide the profiler html/pdf file in your submission.
+Also noticed that: 
+- No rules were triggered during the process
+- The average step duration was 13.1s 
+
+Here are some ways that may help to fix the anomalous behaviour seen:
+1. Adding more hyperparameters to tune.
+2. Increasing hyperparameter ranges for hpo tuning.
+3. Increasing `max_jobs` for hpo tuning.
+4. Adding more Fully Connected layers to the pretrained model.
 
 
 ## Model Deployment
-**TODO**: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+The model is deployed using `inference.py` script.
 
-**TODO** Remember to provide a screenshot of the deployed active endpoint in Sagemaker.
+### Deployed the Endpoint
+![endpoint snapshot](images/Endpoint.png)
 
-## Standout Suggestions
-**TODO (Optional):** This is where you can provide information about any standout suggestions that you have attempted.
+### Instructions on how to Query the Endpoint with a Sample Input
+* The dog images I use must be downloaded from [here](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip).
+* Test images I use are stored in the `dogImages/test/` folder.
+* Scripts to predict on the Endpoint:
+	* store image path in `image_path`
+	* prepare image and store it as `payload`:
+	    `response = object.get()`
+		`payload = response['Body'].read()`
+	* run prediction:
+		`response = predictor.predict(payload, initial_args={"ContentType": "image/jpeg"})`
+		`response= json.loads(response.decode())`
+		`predicted_dog_breed_idx = np.argmax(response,1)[0]`
+
+
+### Test prediction
+In `train_and_deploy.ipynb` I run 4 test predictions, and the predictions are pretty accurate.
+
+Here is an example of a prediction:
+![example snapshot](images/Bulldog.png)
+
+### Endpoint Instance Metrics
+![endpoint instance metrics](images/afghan_hound.png)
+
+### Endpoint Invocation Metrics
+![endpoint invocation metrics](images/Bichon_frise.png)
