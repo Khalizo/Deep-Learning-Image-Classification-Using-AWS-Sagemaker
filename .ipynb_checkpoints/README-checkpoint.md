@@ -1,11 +1,6 @@
 # Image Classification using AWS SageMaker
 
-Use AWS Sagemaker to train a pretrained model that can perform image classification by using the Sagemaker profiling, debugger, hyperparameter tuning and other good ML engineering practices. This can be done on either the provided dog breed classication data set or one of your choice.
-
-## Project Set Up and Installation
-Enter AWS through the gateway in the course and open SageMaker Studio. 
-Download the starter files.
-Download/Make the dataset available. 
+In this project, I use AWS Sagemaker to train a pretrained model that can perform image classification by using the Sagemaker profiling, debugger, hyperparameter tuning and other good ML engineering practices. This was done on a dog breed dataset.
 
 ## Dataset
 The provided dataset is the dogbreed classification dataset which can be found in the classroom.
@@ -33,28 +28,28 @@ A high-level diagram of the model is shown in the following screenshot:
 - The best hyperparameters selected were: {'batch-size': '128', 'lr': '0.003484069065132129', 'epochs': '2'}
 
 ### All Training Jobs
-![all training jobs snapshot](images/Training Jobs.png)
+![all training jobs snapshot](images/training_jobs.png)
 
 ### Hyperparameters Tuning Jobs
-![hyperparameters tuning jobs snapshot](images/Hyperparameter Jobs.png)
+![hyperparameters tuning jobs snapshot](images/hpo_jobs.png)
 
 ### Best Hyperparameters Tuning Job
-![best hyperparameters tuning job snapshot](images/Best Training job.png)
+![best hyperparameters tuning job snapshot](images/best_training_job.png)
 
 ## Debugging and Profiling
 ### Debugging Report
 Two plots show dependence between loss and step: first one shows the `train_loss/steps`, the second one shows the `test_loss/steps`.
 ### Train loss plot:
-![train loss snapshot](images/Train Loss.png)
+![train loss](images/train_loss.png)
 
 ### Test loss plot:
-![test loss snapshot](images/Test Loss.png)
+![test loss](images/test_loss.png)
 
 ### Debugging and Profile Rules:
-![test loss snapshot](images/Debug_Profile_Rules.png)
+![dpr](images/dpr.png)
 
 ### Profiling Results:
-![test loss snapshot](images/Profiling results.png)
+![pr](images/pr.png)
 
 ### Results
 As we see there are some anomalous behaviour in the debugging output:
@@ -96,10 +91,10 @@ The model is deployed using `inference.py` script.
 In `train_and_deploy.ipynb` I run 4 test predictions, and the predictions are pretty accurate.
 
 Here is an example of a prediction:
-![example snapshot](images/Bulldog.png)
+![bulldog](images/Bulldog.png)
 
 ### Endpoint Instance Metrics
-![endpoint instance metrics](images/afghan_hound.png)
+![afghan_hound](images/afghan_hound.png)
 
 ### Endpoint Invocation Metrics
-![endpoint invocation metrics](images/Bichon_frise.png)
+![bichon_friess](images/Bichon_frise.png)
