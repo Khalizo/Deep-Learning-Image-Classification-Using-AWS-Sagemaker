@@ -96,10 +96,10 @@ The model is deployed using `inference.py` script.
 In `train_and_deploy.ipynb` I run 4 test predictions, and the predictions are pretty accurate.
 
 Here is an example of a prediction:
-![example snapshot](images/Bulldog.png)
+![bulldog](images/Bulldog.png)
 
 ### Endpoint Instance Metrics
-![endpoint instance metrics](images/afghan_hound.png)
+![afghan_hound](images/afghan_hound.png)
 
 ### Endpoint Invocation Metrics
-![endpoint invocation metrics](images/Bichon_frise.png)
+![bichon_friess](images/Bichon_frise.png)
