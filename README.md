@@ -33,28 +33,28 @@ A high-level diagram of the model is shown in the following screenshot:
 - The best hyperparameters selected were: {'batch-size': '128', 'lr': '0.003484069065132129', 'epochs': '2'}
 
 ### All Training Jobs
-![all training jobs snapshot](images/Training Jobs.png)
+![all training jobs snapshot](images/training_jobs.png)
 
 ### Hyperparameters Tuning Jobs
-![hyperparameters tuning jobs snapshot](images/Hyperparameter Jobs.png)
+![hyperparameters tuning jobs snapshot](images/hpo_jobs.png)
 
 ### Best Hyperparameters Tuning Job
-![best hyperparameters tuning job snapshot](images/Best Training job.png)
+![best hyperparameters tuning job snapshot](images/best_training_job.png)
 
 ## Debugging and Profiling
 ### Debugging Report
 Two plots show dependence between loss and step: first one shows the `train_loss/steps`, the second one shows the `test_loss/steps`.
 ### Train loss plot:
-![train loss snapshot](images/Train Loss.png)
+![train loss snapshot](images/train_loss.png)
 
 ### Test loss plot:
-![test loss snapshot](images/Test Loss.png)
+![test loss snapshot](images/test_loss.png)
 
 ### Debugging and Profile Rules:
 ![test loss snapshot](images/Debug_Profile_Rules.png)
 
 ### Profiling Results:
-![test loss snapshot](images/Profiling results.png)
+![test loss snapshot](images/pr.png)
 
 ### Results
 As we see there are some anomalous behaviour in the debugging output:
