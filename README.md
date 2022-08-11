@@ -87,11 +87,9 @@ The model is deployed using `inference.py` script.
 ### Test prediction
 In `train_and_deploy.ipynb` I run 4 test predictions, and the predictions are pretty accurate.
 
-Here is an example of a prediction:
+Here are some examples of predictions:
 ![bulldog](images/Bulldog.png)
 
-### Endpoint Instance Metrics
 ![afghan_hound](images/afghan_hound.png)
 
-### Endpoint Invocation Metrics
 ![bichon_friess](images/Bichon_frise.png)
