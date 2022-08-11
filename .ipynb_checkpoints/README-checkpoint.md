@@ -6,9 +6,6 @@ In this project, I use AWS Sagemaker to train a pretrained model that can perfor
 The provided dataset is the dogbreed classification dataset which can be found in the classroom.
 The project is designed to be dataset independent so if there is a dataset that is more interesting or relevant to your work, you are welcome to use it to complete the project.
 
-### Access
-Upload the data to an S3 bucket through the AWS Gateway so that SageMaker has access to the data. 
-
 ## Hyperparameter Tuning
 
 - The pre-trained model that I chose for this project was Inception v3. This is an image recognition model that has been shown to attain greater than 78.1% accuracy on the ImageNet dataset. The model is the culmination of many ideas developed by multiple researchers over the years. It is based on the original paper: ["Rethinking the Inception Architecture for Computer Vision"](https://arxiv.org/abs/1512.00567) by Szegedy, et. al.
